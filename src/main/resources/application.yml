@@ -1,0 +1,45 @@
+spring:
+  config:
+    import: env.yml
+  application:
+    name: ${app.name}
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${db.host}:${db.port}/${db.name}
+    username: ${db.username}
+    password: ${db.password}
+  jpa:
+    hibernate:
+      ddl-auto: ${hibernate.ddl-auto}
+    properties:
+      show_sql: ${hibernate.show-sql}
+      format_sql: ${hibernate.format-sql}
+  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            authorization-grant-type: ${oauth2.google.authorization-grant-type}
+#            client-id: ${oauth2.google.client-id}
+#            client-secret: ${oauth2.google.client-secret}
+#            scope: ${oauth2.google.scope}
+#            redirect-uri: ${oauth2.google.redirect-uri}
+#        provider:
+#          google:
+#            issuer-uri: ${oauth2.google.issuer-uri}
+
+jwt:
+  secret-key: ${jwt.secret-key}
+  expiration-time: ${jwt.expiration-time}
+
+server:
+  port: ${server.port}
+  servlet:
+    context-path: ${server.context-path}
+
+logging:
+  level:
+    org:
+      springframework:
+        security: ${log.level}
+
